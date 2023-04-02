@@ -1,13 +1,228 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@300;600&display=swap');
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  background: white;
+  color : #222;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+}
+
+.wrapper {
+  width : 1280px;
+  margin: 30px auto;
+}
+
+header {
+  position: relative;
+}
+header .logo{
+  font-weight: 600;
+  font-size: 20px;
+}
+
+header ul.nav{
+  float: right;
+  list-style: none;
+}
+header ul.nav li{
+  display: inline;
+  margin-left: 25px;
+  cursor: pointer;
+  transition: opacity 300ms ease;
+  font-weight: 500;
+}
+header ul.nav li:hover{
+  opacity: 0.5;
+}
+
+header .shop-cart-button{
+  float: right;
+  cursor: pointer;
+  transition: color, scale, translateY 400ms ease;
+  width: 30px;
+  color: gray;
+
+}
+
+header .sum{
+  font-weight: 600;
+  font-size: 20px;
+  color : darkred;
+  margin-top: 10px;
+}
+header .shop-cart-button:hover,
+header .shop-cart-button.active{
+  color: palevioletred;
+  transform: scale(1.05) translateY(-2px);
+}
+header .shop-cart{
+  position: absolute;
+  top : 30px;
+  right: 0;
+  width: 450px;
+  background: whitesmoke;
+  box-shadow: 11px 9px 5px 0px rgba(199,199,199,0.75);
+  -webkit-box-shadow: 11px 9px 5px 0px rgba(199,199,199,0.75);
+  -moz-box-shadow: 11px 9px 5px 0px rgba(199,199,199,0.75);
+  z-index: 1000;
+  padding: 20px;
+}
+.order .delete-icon {
+  color : darkred;
+  position: relative;
+  float: right;
+  cursor: pointer;
+  top : -25px;
+  transition: color, transform 300ms ease;
+}
+.order .delete-icon:hover{
+  transform: scale(1.3);
+  color : palevioletred;
+}
+.order img{
+  width: 100px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+}
+
+.order h2{
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.order b{
+  font-weight: 600;
+  color : darkred;
+}
+header .presentation {
+  margin: 30px 0;
+  background: url("./img/superHeader.jpg") no-repeat;
+  width: 100%;
+  height: 300px;
+  background-size: cover;
+  background-position: center center;
+  background-blend-mode: multiply;
+  background-color: darkgrey;
+  position: relative;
+}
+header .presentation::after {
+  color : white;
+  content : "Лучшие добавки для ваших мышц";
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  width : 300px;
+  font-size: 40px;
+  font-weight: 600;
+}
+header .presentation::before {
+  color : white;
+  content : "По вкусным ценам";
+  position: absolute;
+  top: 200px;
+  left: 50px;
+  width : 300px;
+  font-size: 17px;
+  font-weight: 400;
+}
+
+.categories div{
+  display: inline-block;
+  background: whitesmoke;
+  padding: 10px;
+  margin: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  border : solid 1px transparent;
+  transition: all 300ms ease;
+}
+.categories div:hover{
+  border-color : silver;
+  transform : scale(1.1);
+}
+
+main {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+
+}
+
+.full-item {
+  position: fixed;
+  top : 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgb(0,0,0, 0.8);
+z-index: 9999;
+  overflow: auto;
+}
+
+.full-item > div{
+  width: 600px;
+  position: relative;
+  margin: 10% auto;
+  padding: 30px 40px;
+  background: whitesmoke;
+  border-radius: 20px;
+}
+main .item {
+  width: 30%;
+  margin-bottom: 50px;
+  overflow: hidden;
+  position: relative;
+  padding-bottom: 20px;
+}
+main .item img,
+.full-item img{
+transition: transform 300ms ease;
+  cursor: pointer;
+}
+
+main .item img:hover,
+.full-item img:hover{
+  transform: scale(1.03);
+}
+
+main h4, main p, main b,
+.full-item h4, .full-item p, .full-item b{
+  margin : 10px 20px;
+  color : #333
+}
+main b,
+.full-item b{
+  color : darkred;
+}
+
+main .add-to-cart,
+.full-item .add-to-cart{
+  position: absolute;
+  right: 20px;
+  bottom : 20px;
+  background: palevioletred;
+  width: 40px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  color :white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 300ms ease;
+
+}
+main .add-to-cart:hover,
+.full-item .add-to-cart:hover{
+  transform: scale(1.07) translateY(-3px);
+}
+footer {
+  text-align: center;
+  margin-top: 10px;
+
 }
